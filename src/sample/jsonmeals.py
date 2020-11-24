@@ -34,9 +34,5 @@ class Meals:
     def filterByMainIngredient(self, ingredient):
         if type(ingredient) != str:
             raise Exception('Ingredient is not a string')
-        meal = requests.get('https://www.themealdb.com/api/json/v1/1/filter.php?', {"c": ingredient})
+        meal = requests.get('https://www.themealdb.com/api/json/v1/1/filter.php?', {'i': ingredient})
         return meal.json()['meals']
-
-
-a = Meals()
-print(len(a.getMealByName("spaghetti")))
